@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load render_table from django_tables2 %}
+{% block content %}
+    <h3>Filters</h3>
+    <form action="" method="get" class="form form-inline">
+        <label for="strategy">Strategy</label>
+        <select name="strategy">
+            <option value=""> All</option>
+            {% for option in strategy_options %}
+                <option value="{{ option }}"> {{ option }}</option>
+            {% endfor %}
+        <input type="submit"/>
+    </form>
+
+    <h3>Fund Data</h3>
+    {% render_table funds %}
+    <p>Total Displayed Funds: {{ fund_count }}</p>
+    <p>Total Displayed Fund AUM: ${{ total_aum }}</p>
+{% endblock %}
