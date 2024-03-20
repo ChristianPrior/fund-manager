@@ -11,6 +11,8 @@ All requirements have been implemented.
 * Install pipenv and requirements
   * `pip install pipenv`
   * `pipenv install`
+* Run migrations
+  * `pipenv run src/manage.py migrate`
 * Run server locally
   * `pipenv run src/manage.py runserver`
 * Open a browser and navigate to the below
