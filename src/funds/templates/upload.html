@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    <h3>Fund Uploader</h3>
+    <p>Please use the below to upload fund .CSV data to the database.</p>
+    {% if form_errors %}
+        <p>
+            ALERT! Failed to upload fund data. 
+            Please fix the below errors and try again:
+        </p>
+        <ul>
+            {% for error in form_errors %}
+                <li> {{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% elif uploaded_fund_count %}
+        <p>
+            Successfully uploaded {{ uploaded_fund_count }} 
+            fund{{ uploaded_fund_count|pluralize }} from provided file.
+        </p>
+    {% endif %}
+
+    <form
+        action="/funds/upload/"
+        enctype="multipart/form-data"
+        method="post"
+    >
+        {% csrf_token %}
+        {{ form }}
+        <br/>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
