@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 
-from funds.views import FundView, FundListView, UploadView
+from funds.views import FundListView, FundView, UploadView
 
 urlpatterns = [
     path("admin/", admin.site.urls),

@@ -6,6 +6,13 @@ from funds.forms import FundForm
 
 
 def csv_to_db(file_contents):
+    """
+    Uploads fund csv data to database, only if all data is valid.
+
+    Returns a tuple containing a count of how many funds have been uploaded
+    and a list of any form errors encountered.
+    """
+
     form_errors = []
     funds_to_create = []
     for index, row in enumerate(DictReader(file_contents), 2):
